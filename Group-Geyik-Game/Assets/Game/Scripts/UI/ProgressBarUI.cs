@@ -72,8 +72,7 @@ public class ProgressBarUI : MonoBehaviour
         heartOff.gameObject.SetActive(true);
         currentProgress = 0;
 
-        AnimationManager.Instance.DeactivateDanceFemale();
-        AnimationManager.Instance.DeactivateDanceMale();
+       
         clickTime = 0;
         UpdateProgressAmountNormalized();
     }
