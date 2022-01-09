@@ -5191,7 +5191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1393583498}
-  - component: {fileID: 1393583500}
+  - component: {fileID: 1393583501}
   - component: {fileID: 1393583499}
   m_Layer: 5
   m_Name: WinUI
@@ -5244,7 +5244,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1393583500
+--- !u!114 &1393583501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5253,11 +5253,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1393583497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be063356b8dbd04c99bc412df82d2e1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e07b022696849478dc9afedc4390a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  star: {fileID: 1543337125}
-  animator: {fileID: 1393583499}
 --- !u!1 &1414076513
 GameObject:
   m_ObjectHideFlags: 0
@@ -6189,7 +6187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47af003713c8a6043887355882f7d147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 1543337126}
 --- !u!1 &1567293420
 GameObject:
   m_ObjectHideFlags: 0

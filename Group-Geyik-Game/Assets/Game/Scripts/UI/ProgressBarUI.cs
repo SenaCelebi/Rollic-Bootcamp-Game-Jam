@@ -51,8 +51,8 @@ public class ProgressBarUI : MonoBehaviour
     [Button]
     public void OneTaskDone()
     {
+        StarRatingController.stars++;
         currentProgress += 1;
-        Score.stars += 1;
         if (currentProgress == maxProgress)
         {
             AnimationManager.Instance.ActivateDanceFemale();

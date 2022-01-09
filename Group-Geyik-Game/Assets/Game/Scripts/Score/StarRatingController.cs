@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class StarRatingController : MonoBehaviour
 {
-    public Animator anim; 
-    public ItemSelectUI itemSelectUI; 
-
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
+    public Animator anim => GetComponent<Animator>();
+    public static int stars = 0;
+    private void Update()
+    { 
         Aasdasdasd();
 
 
@@ -18,7 +16,7 @@ public class StarRatingController : MonoBehaviour
 
     private void Aasdasdasd()
     {
-        switch (Score.stars)
+        switch (stars)
         {
             case 3:
                 anim.SetBool("star3Bool", true);

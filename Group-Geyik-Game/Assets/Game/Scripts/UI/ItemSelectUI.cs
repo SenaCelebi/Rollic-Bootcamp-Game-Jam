@@ -877,7 +877,6 @@ public class ItemSelectUI : MonoBehaviour
     private IEnumerator ThreeStagesCompleted()
     {
         //kazanma ekraný bekleme sekansý
-
         if (ProgressBarUI.Instance.GetScore() == 1 || ProgressBarUI.Instance.GetScore() == 2)
         {
             winUI.gameObject.SetActive(true);
@@ -903,7 +902,7 @@ public class ItemSelectUI : MonoBehaviour
                     AnimationManager.Instance.DeactivateDanceFemale();
                     AnimationManager.Instance.DeactivateDanceMale();
                 });
-                
+
             });
         }
         else
