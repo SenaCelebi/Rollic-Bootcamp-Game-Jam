@@ -885,6 +885,7 @@ public class ItemSelectUI : MonoBehaviour
             {
                 winUI.transform.gameObject.SetActive(false);
                 JustDoIT();
+                currentLevel++;
             });
         }
         else if (ProgressBarUI.Instance.GetScore() == 3)
@@ -901,6 +902,7 @@ public class ItemSelectUI : MonoBehaviour
                     JustDoIT();
                     AnimationManager.Instance.DeactivateDanceFemale();
                     AnimationManager.Instance.DeactivateDanceMale();
+                    currentLevel++;
                 });
 
             });
@@ -922,7 +924,7 @@ public class ItemSelectUI : MonoBehaviour
 
     private void JustDoIT()
     {
-        currentLevel++;
+       
         levelText.GetComponent<TextMeshProUGUI>().SetText("LEVEL: " + currentLevel.ToString());
 
         //progress bar'ý sýfýrla

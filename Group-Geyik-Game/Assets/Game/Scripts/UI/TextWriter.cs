@@ -6,10 +6,10 @@ using TMPro;
 public class TextWriter : MonoBehaviour
 {
     public TextMeshProUGUI uiText;
-    private string textToWrite;
-    private int characterIndex;
-    private float timePerCharacter;
-    private float timer;
+    private string textToWrite = "Create My Perfect Match!";
+    private int characterIndex = 0;
+    private float timePerCharacter = 2f;
+    private float timer = 0f;
 
     public void AddWriter(TextMeshProUGUI uiText, string textToWrite, float timePerChar)
     {
@@ -19,35 +19,28 @@ public class TextWriter : MonoBehaviour
         characterIndex = 0;
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
-        if(uiText != null)
+
+        if (uiText != null)
         {
             timer -= Time.deltaTime;
-            if(timer <= 0f)
+            if (timer <= 0f)
             {
                 timer += timePerCharacter;
                 characterIndex++;
                 uiText.text = textToWrite.Substring(0, characterIndex);
 
-                if(characterIndex >= textToWrite.Length)
+                if (characterIndex >= textToWrite.Length)
                 {
                     uiText = null;
                     return;
                 }
             }
         }
-        
+
 
     }
-        
+
 }
