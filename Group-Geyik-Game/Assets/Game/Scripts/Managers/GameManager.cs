@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         isMale = !isMale;
         ChangeModel();
         Change2dImage();
+        Score.stars = 0;
     }
     private void ChangeModel()
     {

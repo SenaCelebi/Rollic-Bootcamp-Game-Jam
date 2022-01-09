@@ -52,7 +52,7 @@ public class ProgressBarUI : MonoBehaviour
     public void OneTaskDone()
     {
         currentProgress += 1;
-
+        Score.stars += 1;
         if (currentProgress == maxProgress)
         {
             AnimationManager.Instance.ActivateDanceFemale();

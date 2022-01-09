@@ -6,7 +6,7 @@ public class Score : MonoBehaviour
 {
     public static Score Instance { get; private set; }
     
-    public static int stars = 3;
+    public static int stars = 0;
     public static int totalCoin = 0;
 
     private void Awake()
