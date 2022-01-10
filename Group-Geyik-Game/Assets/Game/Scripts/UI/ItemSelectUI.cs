@@ -9,23 +9,19 @@ using TMPro;
 
 public class ItemSelectUI : MonoBehaviour
 {
-    public static ItemSelectUI Instance { get; private set; }
-
     [SerializeField] private List<Transform> itemList; // UI'daki 5 buton
 
     [SerializeField] private Transform winUI;
     [SerializeField] private Transform loseUI;
     [SerializeField] private Transform wheelUI;
     [SerializeField] private Transform levelText;
+    [SerializeField] private Transform handTransform;
 
     private Action RefFunction;
 
-    public Transform handTransform;
 
     private bool isDrag = false;
     private int currentLevel = 1;
-
-
 
     #region Observer
     public event EventHandler<OnHairColorChangedEventArgs> OnHairColorChanged;
@@ -71,11 +67,6 @@ public class ItemSelectUI : MonoBehaviour
     private int taskPartOne, taskPartTwo, taskPartThree; //task manager'dan gelen saç mý göz mü onlar
     private int stage = 1; //item seçme aþamasý toplam 3 kere
 
-    private void Awake()
-    {
-        Instance = this;
-
-    }
     private void Start()
     {
         SetTaskParts();
@@ -110,7 +101,6 @@ public class ItemSelectUI : MonoBehaviour
             handTransform.gameObject.SetActive(true);
         }
     }
-
     private void SetTaskParts()
     {
         //indeksler 0'dan 4'e kadar
@@ -146,7 +136,6 @@ public class ItemSelectUI : MonoBehaviour
                 break;
         }
     }
-
     private void CheckStage()
     {
         //UI'da týkladýktan sonraki check iþlemi
@@ -162,11 +151,12 @@ public class ItemSelectUI : MonoBehaviour
                 break;
             case 3:
                 AnimationManager.Instance.DeactivateInGameUI();
-                StartCoroutine(ThreeStagesCompleted());
+                StartCoroutine(ThreeStagesCompletedAtor());
                 break;
         }
     }
 
+    #region GetParts
     private void GetHairs(HairTypeListSO hairList)
     {
         List<int> tempList = new List<int>();
@@ -208,12 +198,12 @@ public class ItemSelectUI : MonoBehaviour
                                 CheckStage();
                             };
 
-                            StartCoroutine(WheelTime(RefFunction));
+                            StartCoroutine(WheelTimeAtor(RefFunction));
                         }
                         else
                         {
                             Debug.Log("yanlýþ");
-                            OnHairColorChanged?.Invoke(this, new OnHairColorChangedEventArgs { str = RecipeManager.Instance.GetRecipedHair().colorHex });
+                            OnHairColorChanged?.Invoke(this, new OnHairColorChangedEventArgs { str = hairList.list[randomIndex].colorHex });
                             TaskListUI.Instance.SetActiveXMark(stage - 1);
                             CheckStage();
                         }
@@ -248,7 +238,7 @@ public class ItemSelectUI : MonoBehaviour
                             TaskListUI.Instance.SetActiveTick(stage - 1);
                             CheckStage();
                         };
-                        StartCoroutine(WheelTime(RefFunction));
+                        StartCoroutine(WheelTimeAtor(RefFunction));
 
                     }
                     else
@@ -294,7 +284,7 @@ public class ItemSelectUI : MonoBehaviour
                         TaskListUI.Instance.SetActiveTick(stage - 1);
                         CheckStage();
                     };
-                    StartCoroutine(WheelTime(RefFunction));
+                    StartCoroutine(WheelTimeAtor(RefFunction));
 
                 }
                 else
@@ -309,7 +299,6 @@ public class ItemSelectUI : MonoBehaviour
         }
         tempList.Clear();
     }
-
     private void GetEyes(EyeListSO eyeList)
     {
         List<int> tempList = new List<int>();
@@ -347,7 +336,7 @@ public class ItemSelectUI : MonoBehaviour
                                 OnEyeColorChanged?.Invoke(this, new OnEyeColorChangedEventArgs { str = eyeList.list[randomIndex].colorHex });
                                 CheckStage();
                             };
-                            StartCoroutine(WheelTime(RefFunction));
+                            StartCoroutine(WheelTimeAtor(RefFunction));
 
                         }
                         else
@@ -387,7 +376,7 @@ public class ItemSelectUI : MonoBehaviour
                             TaskListUI.Instance.SetActiveTick(stage - 1);
                             CheckStage();
                         };
-                        StartCoroutine(WheelTime(RefFunction));
+                        StartCoroutine(WheelTimeAtor(RefFunction));
                     }
                     else
                     {
@@ -435,7 +424,7 @@ public class ItemSelectUI : MonoBehaviour
                         TaskListUI.Instance.SetActiveTick(stage - 1);
                         CheckStage();
                     };
-                    StartCoroutine(WheelTime(RefFunction));
+                    StartCoroutine(WheelTimeAtor(RefFunction));
 
                 }
                 else
@@ -487,7 +476,7 @@ public class ItemSelectUI : MonoBehaviour
                                 OnDressColorChanged?.Invoke(this, new OnDressColorChangedEventArgs { str = dressList.list[randomIndex].colorHex });
                                 CheckStage();
                             };
-                            StartCoroutine(WheelTime(RefFunction));
+                            StartCoroutine(WheelTimeAtor(RefFunction));
 
                         }
                         else
@@ -530,7 +519,7 @@ public class ItemSelectUI : MonoBehaviour
                             TaskListUI.Instance.SetActiveTick(stage - 1);
                             CheckStage();
                         };
-                        StartCoroutine(WheelTime(RefFunction));
+                        StartCoroutine(WheelTimeAtor(RefFunction));
 
                     }
                     else
@@ -574,7 +563,7 @@ public class ItemSelectUI : MonoBehaviour
                         TaskListUI.Instance.SetActiveTick(stage - 1);
                         CheckStage();
                     };
-                    StartCoroutine(WheelTime(RefFunction));
+                    StartCoroutine(WheelTimeAtor(RefFunction));
 
                 }
                 else
@@ -626,7 +615,7 @@ public class ItemSelectUI : MonoBehaviour
                                 OnBodyColorChanged?.Invoke(this, new OnBodyColorChangedEventArgs { str = bodyList.list[randomIndex].colorHex });
                                 CheckStage();
                             };
-                            StartCoroutine(WheelTime(RefFunction));
+                            StartCoroutine(WheelTimeAtor(RefFunction));
 
                         }
                         else
@@ -667,7 +656,7 @@ public class ItemSelectUI : MonoBehaviour
                             TaskListUI.Instance.SetActiveTick(stage - 1);
                             CheckStage();
                         };
-                        StartCoroutine(WheelTime(RefFunction));
+                        StartCoroutine(WheelTimeAtor(RefFunction));
 
                     }
                     else
@@ -710,7 +699,7 @@ public class ItemSelectUI : MonoBehaviour
                         TaskListUI.Instance.SetActiveTick(stage - 1);
                         CheckStage();
                     };
-                    StartCoroutine(WheelTime(RefFunction));
+                    StartCoroutine(WheelTimeAtor(RefFunction));
 
                 }
                 else
@@ -761,7 +750,7 @@ public class ItemSelectUI : MonoBehaviour
                                 OnLipColorChanged?.Invoke(this, new OnLipColorChangedEventArgs { str = lipList.list[randomIndex].colorHex });
                                 CheckStage();
                             };
-                            StartCoroutine(WheelTime(RefFunction));
+                            StartCoroutine(WheelTimeAtor(RefFunction));
 
                         }
                         else
@@ -803,7 +792,7 @@ public class ItemSelectUI : MonoBehaviour
                             TaskListUI.Instance.SetActiveTick(stage - 1);
                             CheckStage();
                         };
-                        StartCoroutine(WheelTime(RefFunction));
+                        StartCoroutine(WheelTimeAtor(RefFunction));
 
                     }
                     else
@@ -847,7 +836,7 @@ public class ItemSelectUI : MonoBehaviour
                         TaskListUI.Instance.SetActiveTick(stage - 1);
                         CheckStage();
                     };
-                    StartCoroutine(WheelTime(RefFunction));
+                    StartCoroutine(WheelTimeAtor(RefFunction));
 
                 }
                 else
@@ -861,9 +850,11 @@ public class ItemSelectUI : MonoBehaviour
         }
 
         tempList.Clear();
-    }
+    } 
+    #endregion
 
-    private IEnumerator WheelTime(Action action)
+    #region Enumerators
+    private IEnumerator WheelTimeAtor(Action action)
     {
         wheelUI.gameObject.SetActive(true);
         AnimationManager.Instance.ActivateWheelUI();
@@ -874,7 +865,7 @@ public class ItemSelectUI : MonoBehaviour
         SthImportantFunction();
 
     }
-    private IEnumerator ThreeStagesCompleted()
+    private IEnumerator ThreeStagesCompletedAtor()
     {
         //kazanma ekraný bekleme sekansý
         if (ProgressBarUI.Instance.GetScore() == 1 || ProgressBarUI.Instance.GetScore() == 2)
@@ -884,7 +875,7 @@ public class ItemSelectUI : MonoBehaviour
             winUI.Find("ButtonNext").GetComponent<Button>().onClick.AddListener(() =>
             {
                 winUI.transform.gameObject.SetActive(false);
-                JustDoIT();
+                NextLevelProgress();
                 currentLevel++;
             });
         }
@@ -895,11 +886,11 @@ public class ItemSelectUI : MonoBehaviour
             winUI.Find("ButtonNext").GetComponent<Button>().onClick.AddListener(() =>
             {
                 winUI.transform.gameObject.SetActive(false);
-                JustDoIT();
+                NextLevelProgress();
                 winUI.Find("ButtonNext").GetComponent<Button>().onClick.AddListener(() =>
                 {
                     winUI.transform.gameObject.SetActive(false);
-                    JustDoIT();
+                    NextLevelProgress();
                     AnimationManager.Instance.DeactivateDanceFemale();
                     AnimationManager.Instance.DeactivateDanceMale();
                     currentLevel++;
@@ -909,20 +900,21 @@ public class ItemSelectUI : MonoBehaviour
         }
         else
         {
-            Debug.Log("loooooserrr");
+            Debug.Log("loseer");
             loseUI.gameObject.SetActive(true);
             loseUI.Find("ButtonRetry").GetComponent<Button>().onClick.AddListener(() =>
             {
                 loseUI.transform.gameObject.SetActive(false);
-                JustDoIT();
+                NextLevelProgress();
 
             });
 
         }
 
-    }
+    } 
+    #endregion
 
-    private void JustDoIT()
+    private void NextLevelProgress()
     {
        
         levelText.GetComponent<TextMeshProUGUI>().SetText("LEVEL: " + currentLevel.ToString());

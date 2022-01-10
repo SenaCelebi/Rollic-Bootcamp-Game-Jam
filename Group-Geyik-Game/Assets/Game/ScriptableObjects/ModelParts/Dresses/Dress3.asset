@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8975d680dcee5fa4fae44d64fa11fa01, type: 3}
   m_Name: Dress3
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.032075405, b: 0.8372883, a: 1}
-  colorHex: FF09D6
+  color: {r: 0.764151, g: 0.44263083, b: 0.7107813, a: 1}
+  colorHex: C371B6
   colorName: Pinky
   sprite: {fileID: 21300000, guid: c3240bf40a0783044a0acf549521cae1, type: 3}
   taskSprite: {fileID: 21300000, guid: be5b410fcefc0d245b97267b1d43ca80, type: 3}
