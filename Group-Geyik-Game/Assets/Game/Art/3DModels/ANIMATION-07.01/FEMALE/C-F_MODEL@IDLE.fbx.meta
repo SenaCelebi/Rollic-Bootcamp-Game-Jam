@@ -6,7 +6,52 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: IDLE
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_BODY
+    second: {fileID: 2100000, guid: 7506364ba79c8694d9a980ee23632578, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Clothes-1
+    second: {fileID: 2100000, guid: 4fe2779a8d458d14fb418d6aef02c6ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Clothes-2
+    second: {fileID: 2100000, guid: fe8670548544ea94294ff139a69f6bc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Clothes-3
+    second: {fileID: 2100000, guid: 61636e22c2eadbf47b006a8d0c49ab2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_EyeColor
+    second: {fileID: 2100000, guid: 658749d7296704e459c35ea2522075af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_EyeWhite
+    second: {fileID: 2100000, guid: 652f20e4ed159084283ffbc9f5073d69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Hair
+    second: {fileID: 2100000, guid: afc0f5e932b7d9c4fadbd22e57e6c700, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Lips
+    second: {fileID: 2100000, guid: 5affdace7a808c44e80084c2e378fa57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-F_Shoes
+    second: {fileID: 2100000, guid: 74a36c7411dc10b4385390e24a173722, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -98,7 +143,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0

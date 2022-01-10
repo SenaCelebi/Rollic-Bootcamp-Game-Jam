@@ -6,7 +6,47 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: T-Pose
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_BODY
+    second: {fileID: 2100000, guid: d256a8fa18803dc4f84f07b713148da1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_Clothes-B
+    second: {fileID: 2100000, guid: 056f76eed02d10848ae0849a2e3730b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_Clothes-T
+    second: {fileID: 2100000, guid: 20aca4f92b3aafd44855f1548d0ce0de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_EyeColor
+    second: {fileID: 2100000, guid: 37c76a29ed4b88a4d95727cfe55225af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_EyeWhite
+    second: {fileID: 2100000, guid: dd6df33a34fc5fa44ade5ee1cc431d92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_H
+    second: {fileID: 2100000, guid: e016f649010bb584e89d4ac7757a276c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: C-M_Shoes
+    second: {fileID: 2100000, guid: ae4a9a7b6134760409ba38692aca9106, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lips
+    second: {fileID: 2100000, guid: badb63cab24ec8e48a42ca1403f8ce1d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -98,7 +138,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
